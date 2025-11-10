@@ -19,6 +19,7 @@ public class U1 {
 
         Scanner scanner = new Scanner(System.in);
         System.out.print("Zahl: ");
-        int eingabe = scanner.nextInt();
+        String eingabe = scanner.nextLine();
+        int zahl = Integer.parseInt(eingabe);
     }
 }
