@@ -6,7 +6,7 @@ public class U3 {
 
         /*
         Schreibe ein Programm für eine Mitarbeiterverwaltung
-        Jeder User hat einen Vor- und Nachnamen, Abteilung und eine laufende Mitarbeiternummer
+        Jeder Mitasrbeiter hat einen Vor- und Nachnamen, Abteilung und eine laufende Mitarbeiternummer
 
         Es soll möglich sein neue Mitarbeiter hinzuzufügen (Mitarbeiternummer soll automatisch vergeben werden)
         Alle Mitarbeiter anzuzeigen
