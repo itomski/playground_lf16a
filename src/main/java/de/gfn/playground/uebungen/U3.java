@@ -28,7 +28,6 @@ public class U3 {
         Map<String, String> map = new HashMap<>();
         map.put("vorname", "Peter");
         m = new Mitarbeiter(map);
-
     }
 }
 
