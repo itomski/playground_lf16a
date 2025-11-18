@@ -22,20 +22,28 @@ public class FileLogger {
         return instance;
     }
 
-    public void debug(Class usedClass, String usedMethod, String msg) {
-        log("DEBUG", usedClass, usedMethod, msg);
+    public void debug(String className, String methodName, String msg) {
+        log("DEBUG", className, methodName, msg);
     }
 
-    public void error(Class usedClass, String usedMethod, String msg) {
-        log("ERROR", usedClass, usedMethod, msg);
+    public void debug(String msg) {
+        StackTraceElement[] s = Thread.currentThread().getStackTrace();
+        StackTraceElement element = s[2];
+        String className = element.getClassName();
+        String methodName = element.getMethodName();
+        log("DEBUG", className, methodName, msg);
     }
 
-    public void log(String type, Class usedClass, String usedMethod, String msg) {
+    public void error(String className, String methodName, String msg) {
+        log("ERROR", className, methodName, msg);
+    }
+
+    public void log(String type, String className, String methodName, String msg) {
         String record = String.format(RECORD_TPL,
                 LocalDateTime.now().format(DATE_TIME_FMT),
                 type.toUpperCase(), // TODO: Auf Enum umstellen
-                usedClass.getSimpleName(),
-                usedMethod,
+                className,
+                methodName,
                 msg);
 
         appendToFile(record);
