@@ -1,10 +1,10 @@
 package de.gfn.playground.io;
 
-import org.apache.commons.lang3.builder.ToStringBuilder;
-
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Person {
+// Serializable sagt Java, dass diese Objekte serialisiert werden können
+public class Person implements Serializable {
 
     private String vorname;
     private String nachname;
