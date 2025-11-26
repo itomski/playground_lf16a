@@ -8,7 +8,7 @@ public class TodoApp {
     public static void main(String[] args) {
 
         Todo todo = new Todo();
-        todo.setName("Festplatte formatieren"); // Eingabe von der Konsole
+        todo.setName("Kaffee besorgen"); // Eingabe von der Konsole
 
         try {
             // Speichern
@@ -46,9 +46,10 @@ public class TodoApp {
 //                System.out.println("Kein passender Datensatz gefunden");
 //            }
 
+            // Update
             try {
-                Todo t = NextTodoRepository.findById(5);
-                t.setName("Großeinkauf");
+                Todo t = NextTodoRepository.findById(6);
+                t.setName("Kleineinkauf");
                 if(NextTodoRepository.update(t)) {
                     System.out.println("Datensatz wurde geändert");
                 }

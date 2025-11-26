@@ -6,11 +6,9 @@ import java.util.List;
 
 public class NextTodoRepository {
 
-    // TODO: Absichern gegen SQL-Injection
-
     public static boolean update(Todo todo) throws SQLException {
-        final String SQL = "UPDATE todos SET name = '" + todo.getName() + "' WHERE id = " + todo.getId(); // SQL-Anweisung
-        return executeSql(SQL) > 0;
+        final String SQL = "UPDATE todos SET name = ? WHERE id = " + todo.getId(); // SQL-Anweisung
+        return prepareSql(SQL, todo) > 0;
     }
 
     public static boolean delete(Todo todo) throws SQLException {
@@ -23,15 +21,25 @@ public class NextTodoRepository {
     }
 
     public static boolean insert(Todo todo) throws SQLException {
-        final String SQL = "INSERT INTO todos (name) VALUES('" + todo.getName() + "') "; // SQL-Anweisung
-        return executeSql(SQL) > 0;
+        final String SQL = "INSERT INTO todos (name) VALUES(?)"; // SQL-Anweisung
+        return prepareSql(SQL, todo) > 0;
     }
 
     private static int executeSql(final String SQL) throws SQLException {
 
-        try(Connection conn = DatabaseUtils.getConnection()) { // Verbindung aufbauen
-            Statement stmt = conn.createStatement(); // Anfrage-Objekt erzeugen
+        try(Connection conn = DatabaseUtils.getConnection()) {
+            Statement stmt = conn.createStatement();
             stmt.execute(SQL);
+            return stmt.getUpdateCount();
+        }
+    }
+
+    private static int prepareSql(final String SQL, Todo todo) throws SQLException {
+
+        try(Connection conn = DatabaseUtils.getConnection()) {
+            PreparedStatement stmt = conn.prepareStatement(SQL);
+            stmt.setString(1, todo.getName());
+            stmt.execute();
             return stmt.getUpdateCount();
         }
     }

@@ -15,11 +15,22 @@ public class PrepardStatementTest {
 
         try(Connection conn = DriverManager.getConnection(DSN)) {
             PreparedStatement stmt = conn.prepareStatement(SQL); // Vorlage auf der Datenbank vorbereiten
-            stmt.setString(1, "INSERT INTO ..."); // Daten an Platzhalter binden
+
+            stmt.setString(1, "Sport"); // Daten an Platzhalter binden
             stmt.execute(); // Ausführen
-            if(stmt.getUpdateCount() > 0) {
-                System.out.println("Datensatz wurde gespeichert\n");
-            }
+
+            stmt.setString(1, "Kaffee kochen"); // Daten an Platzhalter binden
+            stmt.execute(); // Ausführen
+
+            stmt.setString(1, "Abwasch"); // Daten an Platzhalter binden
+            stmt.execute(); // Ausführen
+
+            stmt.setString(1, "Saugen"); // Daten an Platzhalter binden
+            stmt.execute(); // Ausführen
+
+//            if(stmt.getUpdateCount() > 0) {
+//                System.out.println("Datensatz wurde gespeichert\n");
+//            }
         } catch (Exception e) {
             e.printStackTrace();
         }
