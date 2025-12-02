@@ -13,6 +13,5 @@ public class AdapterTest {
 
         Tweet tweet = new Tweet("Peter Parker", "Super Heros", "Cap. America", "Hi. Ich finde, sein Anzug sitzt zu eng.", "lustig", "cap_america", "heros");
         server.send(new TweetToMessageAdapter(tweet));
-
     }
 }
