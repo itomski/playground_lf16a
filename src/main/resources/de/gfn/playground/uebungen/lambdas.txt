@@ -1,0 +1,14 @@
+Schreibe die Inplementierung für verschiedene BuildIn Functional Interfaces
+
+3 x Consumer (mit verschiednen Datentypen)
+    Auprobieren mit der forEach einer Liste
+
+3 x Predicate (mit verschiednen Datentypen)
+    Auprobieren mit der removeIf einer Liste
+
+2 x Function (mit verschiednen Datentypen)
+    Auprobieren mit der replaceTo einer Liste
+
+1 x Supplier (mit verschiednen Datentypen)
+
+Teste alle aus
