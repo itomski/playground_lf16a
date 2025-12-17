@@ -10,9 +10,16 @@ public class Abfrage {
 
     private Map<Integer, Integer> coins = new HashMap<>();
 
+    public static boolean buttonsDisabled = true;
+
+
     public static void main(String[] args) {
 
         new Abfrage().fillCoins();
+
+        if(Abfrage.buttonsDisabled) {
+            //...
+        }
 
     }
 
